@@ -1,8 +1,8 @@
-import searchFormReducer from './search-form-reducer';
+import searchReducer from './search-reducer';
 import {combineReducers, createStore} from "redux";
 
 const reducers = combineReducers({
-  search: searchFormReducer
+  search: searchReducer
 });
 
 const store = createStore(reducers);

@@ -1,12 +1,12 @@
 import './App.css';
 import Search from "./components/Search/Search";
-import Result from "./components/Result/Result";
+import ResultContainer from "./components/Result/ResultContainer";
 
 function App() {
   return (
     <div className="app-wrapper">
       <Search />
-      <Result />
+      <ResultContainer />
     </div>
   );
 }
