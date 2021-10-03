@@ -1,10 +1,10 @@
 import styles from './Result.module.css'
-import BookCard from "./BookCard/BookCard";
+import BookCard from './BookCard/BookCard';
 
 const Result = (props) => {
   const books = props.searchResult.map((book) => {
     return (
-      <li>
+      <li key={book.id}>
         <BookCard {...book} />
       </li>
     );

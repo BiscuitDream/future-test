@@ -1,5 +1,5 @@
-import Result from "./Result";
-import {connect} from "react-redux";
+import Result from './Result';
+import {connect} from 'react-redux';
 
 const mapStateToProps = (state) => {
   return {

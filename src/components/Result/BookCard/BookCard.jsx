@@ -1,7 +1,6 @@
 import styles from './BookCard.module.css';
 
 const BookCard = (props) => {
-  console.log(props);
   return (
     <div>
       <img className={styles.cover} width="100px" height="200px" alt="book cover"/>
