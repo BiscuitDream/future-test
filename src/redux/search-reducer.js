@@ -4,9 +4,11 @@ const SET_SEARCH_SORT_BY = 'SET-SEARCH-SORT-BY';
 
 
 const initialState = {
-  searchString: '',
-  category: 'all',
-  sortBy: 'relevance',
+  form: {
+    searchString: '',
+    category: 'all',
+    sortBy: 'relevance',
+  },
   searchResult: [{
     id: 1,
     title: 'название первое',
@@ -25,19 +27,28 @@ const searchReducer = (state = initialState, action) => {
     case SET_SEARCH_STRING:
       return {
         ...state,
-        searchString: action.string
+        form: {
+          ...state.form,
+          searchString: action.string
+        }
       };
 
     case SET_SEARCH_CATEGORY:
       return {
         ...state,
-        category: action.category
+        form: {
+          ...state.form,
+          category: action.category
+        }
       };
 
     case SET_SEARCH_SORT_BY:
       return {
         ...state,
-        sortBy: action.sortBy
+        form: {
+          ...state.form,
+          sortBy: action.sortBy
+        }
       };
 
     default:

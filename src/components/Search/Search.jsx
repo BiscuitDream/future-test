@@ -14,10 +14,14 @@ const Search = (props) => {
     props.setSearchSortBy(value);
   };
 
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div>
       <h1>Блок поиска</h1>
-      <form action="post" onSubmit>
+      <form onSubmit={onFormSubmit}>
         <p>
           <label htmlFor="search-input">Строка поиска</label>
           <input type="text" id="search-input" value={props.searchString} onChange={onInputChange} />
