@@ -1,3 +1,5 @@
+import api from "../../api/api";
+
 const Search = (props) => {
   const onInputChange = (e) => {
     const value = e.target.value;
@@ -16,6 +18,10 @@ const Search = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
+    api.getSearchResult(props.searchString, props.sortBy)
+      .then(data =>{
+        props.setSearchResult(data);
+      });
   };
 
   return (

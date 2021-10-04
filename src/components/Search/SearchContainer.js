@@ -1,19 +1,20 @@
 import {connect} from 'react-redux';
 import Search from './Search';
-import {setSearchCategory, setSearchSortBy, setSearchString} from "../../redux/search-reducer";
+import {setSearchCategory, setSearchResult, setSearchSortBy, setSearchString} from "../../redux/search-reducer";
 
 const mapStateToProps = (state) => {
   return {
-    searchString: state.search.searchString,
-    category: state.search.category,
-    sortBy: state.search.sortBy
+    searchString: state.search.form.searchString,
+    category: state.search.form.category,
+    sortBy: state.search.form.sortBy
   };
 };
 
 const SearchContainer = connect(mapStateToProps, {
   setSearchString,
   setSearchCategory,
-  setSearchSortBy
+  setSearchSortBy,
+  setSearchResult
 })(Search);
 
 export default SearchContainer;

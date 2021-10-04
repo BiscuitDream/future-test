@@ -8,7 +8,6 @@ const Result = (props) => {
         <BookCard {...book} />
       </li>
     );
-
   });
 
   return (
