@@ -6,7 +6,9 @@ function App() {
   return (
     <div className="app-wrapper">
       <SearchContainer />
-      <ResultContainer />
+      <div>
+        <ResultContainer />
+      </div>
     </div>
   );
 }

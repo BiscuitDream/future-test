@@ -4,7 +4,7 @@ const BookCard = (props) => {
   const title = props.title;
   const authors = props.authors;
   const category = props.category;
-  const imgSource = props.imageLinks.smallThumbnail;
+  // const imgSource = props.imageLinks.smallThumbnail;
 
   return (
     <div>
