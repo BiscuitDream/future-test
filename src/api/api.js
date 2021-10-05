@@ -16,7 +16,7 @@ const api = { // TODO обе загрузки одно и то же. убрат�
             volumeInfo: {
               title = null,
               authors = null,
-              category = null,
+              categories = null,
               imageLinks: {
                 smallThumbnail = null,
                 thumbnail = null
@@ -34,7 +34,7 @@ const api = { // TODO обе загрузки одно и то же. убрат�
             id,
             title,
             authors,
-            category,
+            categories,
             imageLinks:  {
               smallThumbnail,
               thumbnail
@@ -55,7 +55,7 @@ const api = { // TODO обе загрузки одно и то же. убрат�
             volumeInfo: {
               title = null,
               authors = null,
-              category = null,
+              categories = null,
               imageLinks: {
                 smallThumbnail = null,
                 thumbnail = null
@@ -70,7 +70,7 @@ const api = { // TODO обе загрузки одно и то же. убрат�
             id,
             title,
             authors,
-            category,
+            categories,
             imageLinks:  {
               smallThumbnail,
               thumbnail
