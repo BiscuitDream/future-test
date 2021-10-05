@@ -1,0 +1,46 @@
+.searchBlock {
+  text-align: center;
+  color: white;
+  /*-webkit-text-stroke-color: black;*/
+  /*-webkit-text-stroke-width: 1px;*/
+  font-size: 20px;
+  background-image: url("../../assets/images/book-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.searchForm {
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.searchInput {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 300px;
+}
+
+.searchInput input {
+  flex-grow: 1;
+}
+
+.wrapParams {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.searchParam {
+  display: flex;
+  margin: 15px 10px;
+}
+
+/*.searchParam:not(:last-child) {*/
+/*  margin-right: 20px;*/
+/*}*/
+
+.searchParam label {
+  margin-right: 10px;
+}
