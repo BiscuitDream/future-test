@@ -5,7 +5,7 @@ const BookCard = (props) => {
   const authors = Boolean(props.authors) ? props.authors.join(', ') : ' ';
   const categories = Boolean(props.categories) ? props.categories[0] : ' ';
   const linkAddress = `/${props.id}`;
-  const coverSrc = props.imageLinks.thumbnail;
+  const coverSrc = props.imageLinks.thumbnail; // TODO если нет картинки, то дефолт
 
   return (
     <div className={styles.bookCard}>

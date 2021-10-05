@@ -10,13 +10,13 @@ class AboutBookContainer extends React.Component {
     const bookId = this.props.match.params.bookId;
     api.getBook(bookId)
       .then(data => {
-        setCurrentBook(data);
+        this.props.setCurrentBook(data);
       });
   }
 
   render() {
     return (
-      <AboutBook />
+      <AboutBook {...this.props.currentBook} />
     );
   }
 }
@@ -24,7 +24,7 @@ class AboutBookContainer extends React.Component {
 const AboutBookContainerWithRouter = withRouter(AboutBookContainer);
 
 const mapStateToProps = (state) => ({
-
+  currentBook: state.search.currentBook
 });
 
 export default connect(mapStateToProps, {setCurrentBook})(AboutBookContainerWithRouter);
