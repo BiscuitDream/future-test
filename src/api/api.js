@@ -51,19 +51,23 @@ const api = { // TODO обе загрузки одно и то же. убрат�
       .then(response => {
         const items = response.data.items.map((item) => {
           const {
-            title = null,
-            authors = null,
-            category = null,
-            imageLinks: {
-              smallThumbnail = null,
-              thumbnail = null
-            } = {
-              smallThumbnail: null,
-              thumbnail: null
+            id,
+            volumeInfo: {
+              title = null,
+              authors = null,
+              category = null,
+              imageLinks: {
+                smallThumbnail = null,
+                thumbnail = null
+              } = {
+                smallThumbnail: null,
+                thumbnail: null
+              }
             }
-          } = item.volumeInfo;
+          } = item;
 
           return {
+            id,
             title,
             authors,
             category,
