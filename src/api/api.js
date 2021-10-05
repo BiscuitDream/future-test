@@ -2,16 +2,13 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: 'https://www.googleapis.com/books/v1/',
-  params: {
-    maxResults: 30
-  }
 });
 
-const api = {
-  getSearchResult(searchString, sortBy) {
+const api = { // TODO обе загрузки одно и то же. убрать дублирование
+  getSearchResult(searchString, sortBy, maxResults, startIndex = 0) {
     return axiosInstance
-      .get(`volumes?q=${searchString}&orderBy=${sortBy}`) // +subject:${props.category}
-      .then(response =>{
+      .get(`volumes?q=${searchString}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`) // +subject:${props.category}
+      .then(response => {
         const items = response.data.items.map((item) => {
           // const {title = null, authors = null, category = null, imageLinks: {smallThumbnail = null, thumbnail = null} } = item.volumeInfo;
           const {
@@ -30,6 +27,38 @@ const api = {
           // const authors = item.volumeInfo.authors;
           // const category = item.volumeInfo.categories;
           // const imageLinks = item.volumeInfo.imageLinks;
+          return {
+            title,
+            authors,
+            category,
+            imageLinks:  {
+              smallThumbnail,
+              thumbnail
+            }
+          };
+        });
+
+        return items;
+      });
+  },
+  loadMore(searchString, sortBy,  maxResults, startIndex) {
+    return axiosInstance
+      .get(`volumes?q=${searchString}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`)
+      .then(response => {
+        const items = response.data.items.map((item) => {
+          const {
+            title = null,
+            authors = null,
+            category = null,
+            imageLinks: {
+              smallThumbnail = null,
+              thumbnail = null
+            } = {
+              smallThumbnail: null,
+              thumbnail: null
+            }
+          } = item.volumeInfo;
+
           return {
             title,
             authors,
