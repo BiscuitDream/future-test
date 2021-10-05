@@ -60,7 +60,6 @@ const Search = (props) => {
             </select>
           </p>
         </div>
-
       </form>
     </div>
   );

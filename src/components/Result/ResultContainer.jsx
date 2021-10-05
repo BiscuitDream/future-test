@@ -14,6 +14,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ResultContainer = connect(mapStateToProps, {setMoreBooks, toggleIsFetching, setStartIndex})(Result);
+const ResultContainer = connect(mapStateToProps, {
+  setMoreBooks,
+  toggleIsFetching,
+  setStartIndex
+})(Result);
 
 export default ResultContainer;

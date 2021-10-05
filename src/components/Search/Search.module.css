@@ -1,8 +1,7 @@
 .searchBlock {
+  padding: 25px;
   text-align: center;
   color: white;
-  /*-webkit-text-stroke-color: black;*/
-  /*-webkit-text-stroke-width: 1px;*/
   font-size: 20px;
   background-image: url("../../assets/images/book-bg.jpg");
   background-repeat: no-repeat;
@@ -36,10 +35,6 @@
   display: flex;
   margin: 15px 10px;
 }
-
-/*.searchParam:not(:last-child) {*/
-/*  margin-right: 20px;*/
-/*}*/
 
 .searchParam label {
   margin-right: 10px;
