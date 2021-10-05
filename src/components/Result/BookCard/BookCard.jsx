@@ -9,7 +9,11 @@ const BookCard = (props) => {
 
   return (
     <div className={styles.bookCard}>
-      <a href={linkAddress}><img className={styles.cover} src={coverSrc} width="" alt="book cover"/></a>
+      <a href={linkAddress}>
+        <div className={styles.coverWrapper}>
+          <img className={styles.cover} src={coverSrc} alt="book cover"/>
+        </div>
+      </a>
       <p>{categories}</p>
       <a href={linkAddress}><h3>{title}</h3></a>
       <p className={styles.authors}>{authors}</p>

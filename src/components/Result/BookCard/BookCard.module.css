@@ -9,9 +9,15 @@
   background-color: lightgrey;
 }
 
+.coverWrapper {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 200px;
+}
+
 .cover {
   display: block;
-  /*width: 200px;*/
   background-color: grey;
 }
 .authors {
