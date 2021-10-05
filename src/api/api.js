@@ -12,22 +12,26 @@ const api = { // TODO обе загрузки одно и то же. убрат�
         const items = response.data.items.map((item) => {
           // const {title = null, authors = null, category = null, imageLinks: {smallThumbnail = null, thumbnail = null} } = item.volumeInfo;
           const {
-            title = null,
-            authors = null,
-            category = null,
-            imageLinks: {
-              smallThumbnail = null,
-              thumbnail = null
-            } = {
-              smallThumbnail: null,
-              thumbnail: null
+            id,
+            volumeInfo: {
+              title = null,
+              authors = null,
+              category = null,
+              imageLinks: {
+                smallThumbnail = null,
+                thumbnail = null
+              } = {
+                smallThumbnail: null,
+                thumbnail: null
+              }
             }
-          } = item.volumeInfo;
+          } = item;
           // const title = item.volumeInfo.title;
           // const authors = item.volumeInfo.authors;
           // const category = item.volumeInfo.categories;
           // const imageLinks = item.volumeInfo.imageLinks;
           return {
+            id,
             title,
             authors,
             category,

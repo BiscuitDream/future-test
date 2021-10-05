@@ -1,7 +1,6 @@
 import api from "../../api/api";
 
 const Search = (props) => {
-  console.log(props)
   const onInputChange = (e) => {
     const value = e.target.value;
     props.setSearchString(value);
