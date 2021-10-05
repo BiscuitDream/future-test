@@ -15,8 +15,8 @@ const initialState = {
     sortBy: 'relevance',
   },
   isFetching: false,
-  startIndex: 0, // pagination
-  maxResults: 2, // pagination
+  startIndex: 0,
+  maxResults: 30,
   searchResult: [],
   currentBook: null
 };

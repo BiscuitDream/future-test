@@ -6,7 +6,7 @@ import api from "../../api/api";
 const Result = (props) => {
   const books = props.searchResult.map((book) => {
     return (
-      <li key={book.id}>
+      <li className={styles.card} key={book.id}>
         <BookCard {...book} />
       </li>
     );
@@ -25,12 +25,11 @@ const Result = (props) => {
   return (
     <>
       {props.isFetching ? <Preloader /> : null}
-      <div>
-        <h1>Блок результата поиска</h1>
+      <div className={styles.booksBlock}>
         <ul className={styles.booksList}>
           {books}
         </ul>
-        <button type="button" onClick={onLoadMoreClick}>Load more</button>
+        <button className={styles.loadMore} type="button" onClick={onLoadMoreClick}>Load more</button>
       </div>
     </>
   );

@@ -1,19 +1,18 @@
 import styles from './BookCard.module.css';
 
 const BookCard = (props) => {
-  const title = props.title;
-  const authors = props.authors;
-  const category = props.category;
-  // const imgSource = props.imageLinks.smallThumbnail;
+  const title = Boolean(props.title) ? props.title : ' ';
+  const authors = Boolean(props.authors) ? props.authors.join(', ') : ' ';
+  const categories = Boolean(props.categories) ? props.categories[0] : ' ';
+  const linkAddress = `/${props.id}`;
+  const coverSrc = props.imageLinks.thumbnail;
 
   return (
-    <div>
-      <a href={`/${props.id}`}>
-        <img className={styles.cover} width="200px" alt="book cover"/>
-        <h2>{title}</h2>
-        <p>{Boolean(authors) ? authors.join(', ') : ''}</p>
-        <p>{category}</p>
-      </a>
+    <div className={styles.bookCard}>
+      <a href={linkAddress}><img className={styles.cover} src={coverSrc} width="" alt="book cover"/></a>
+      <p>{categories}</p>
+      <a href={linkAddress}><h3>{title}</h3></a>
+      <p className={styles.authors}>{authors}</p>
     </div>
   );
 };
