@@ -5,6 +5,7 @@ const SET_SEARCH_RESULT = 'SET-SEARCH-RESULT';
 const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 const LOAD_MORE_BOOKS = 'LOAD-MORE-BOOKS';
 const SET_START_INDEX = 'SET-START-INDEX';
+const SET_CURRENT_BOOK = 'SET-CURRENT-BOOK';
 
 
 const initialState = {
@@ -16,7 +17,8 @@ const initialState = {
   isFetching: false,
   startIndex: 0, // pagination
   maxResults: 2, // pagination
-  searchResult: []
+  searchResult: [],
+  currentBook: null
 };
 
 const searchReducer = (state = initialState, action) => {
@@ -72,6 +74,12 @@ const searchReducer = (state = initialState, action) => {
         startIndex: action.startIndex
       };
 
+    case SET_CURRENT_BOOK:
+      return {
+        ...state,
+        currentBook: action.currentBook
+      };
+
     default:
       return state;
   }
@@ -87,5 +95,6 @@ export const setStartIndex = (startIndex, maxResults) => {
   const newStartIndex = startIndex + maxResults;
   return {type: SET_START_INDEX, startIndex: newStartIndex};
 };
+export const setCurrentBook = (currentBook) => ({type: SET_CURRENT_BOOK, currentBook});
 
 export default searchReducer;

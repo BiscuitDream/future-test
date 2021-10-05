@@ -8,10 +8,12 @@ const BookCard = (props) => {
 
   return (
     <div>
-      <img className={styles.cover} width="200px" alt="book cover"/>
-      <h2>{title}</h2>
-      <p>{Boolean(authors) ? authors.join(', ') : ''}</p>
-      <p>{category}</p>
+      <a href={`/${props.id}`}>
+        <img className={styles.cover} width="200px" alt="book cover"/>
+        <h2>{title}</h2>
+        <p>{Boolean(authors) ? authors.join(', ') : ''}</p>
+        <p>{category}</p>
+      </a>
     </div>
   );
 };

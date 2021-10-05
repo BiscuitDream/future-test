@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://www.googleapis.com/books/v1/',
+  baseURL: 'https://www.googleapis.com/books/v1/volumes',
 });
 
 const api = { // TODO обе загрузки одно и то же. убрать дублирование
   getSearchResult(searchString, sortBy, maxResults, startIndex = 0) {
     return axiosInstance
-      .get(`volumes?q=${searchString}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`) // +subject:${props.category}
+      .get(`?q=${searchString}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`) // +subject:${props.category}
       .then(response => {
         const items = response.data.items.map((item) => {
           // const {title = null, authors = null, category = null, imageLinks: {smallThumbnail = null, thumbnail = null} } = item.volumeInfo;
@@ -35,7 +35,7 @@ const api = { // TODO обе загрузки одно и то же. убрат�
             title,
             authors,
             categories,
-            imageLinks:  {
+            imageLinks: {
               smallThumbnail,
               thumbnail
             }
@@ -47,7 +47,7 @@ const api = { // TODO обе загрузки одно и то же. убрат�
   },
   loadMore(searchString, sortBy,  maxResults, startIndex) {
     return axiosInstance
-      .get(`volumes?q=${searchString}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`)
+      .get(`?q=${searchString}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`)
       .then(response => {
         const items = response.data.items.map((item) => {
           const {
@@ -71,7 +71,7 @@ const api = { // TODO обе загрузки одно и то же. убрат�
             title,
             authors,
             categories,
-            imageLinks:  {
+            imageLinks: {
               smallThumbnail,
               thumbnail
             }
@@ -79,6 +79,40 @@ const api = { // TODO обе загрузки одно и то же. убрат�
         });
 
         return items;
+      });
+  },
+  getBook(id) {
+    return axiosInstance
+      .get(`${id}`)
+      .then(response => {
+        const {
+          id,
+          volumeInfo: {
+            title = null,
+            authors = null,
+            categories = null,
+            description = null,
+            imageLinks: {
+              smallThumbnail = null,
+              thumbnail = null
+            } = {
+              smallThumbnail: null,
+              thumbnail: null
+            }
+          }
+        } = response.data;
+
+        return {
+          id,
+          title,
+          authors,
+          categories,
+          description,
+          imageLinks: {
+            smallThumbnail,
+            thumbnail
+          }
+        };
       });
   }
 };
