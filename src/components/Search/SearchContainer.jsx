@@ -3,13 +3,8 @@ import Search from './Search';
 import {
   formSubmit,
   setSearchCategory,
-  setSearchResult,
   setSearchSortBy,
   setSearchString,
-  setStartIndex,
-  setTotalItems,
-  toggleIsFetching,
-  toggleIsSearched
 } from "../../redux/search-reducer";
 
 const mapStateToProps = (state) => {
@@ -26,11 +21,6 @@ const SearchContainer = connect(mapStateToProps, {
   setSearchString,
   setSearchCategory,
   setSearchSortBy,
-  setSearchResult,
-  toggleIsFetching,
-  setStartIndex,
-  toggleIsSearched,
-  setTotalItems,
   formSubmit
 })(Search);
 

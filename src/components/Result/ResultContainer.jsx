@@ -1,6 +1,6 @@
 import Result from './Result';
 import {connect} from 'react-redux';
-import {loadMore, setMoreBooks, setStartIndex, toggleIsFetching} from '../../redux/search-reducer';
+import {loadMore} from '../../redux/search-reducer';
 
 const mapStateToProps = (state) => {
   return {
@@ -16,11 +16,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ResultContainer = connect(mapStateToProps, {
-  setMoreBooks,
-  toggleIsFetching,
-  setStartIndex,
-  loadMore
-})(Result);
+const ResultContainer = connect(mapStateToProps, {loadMore})(Result);
 
 export default ResultContainer;

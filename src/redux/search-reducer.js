@@ -11,7 +11,6 @@ const SET_CURRENT_BOOK = 'SET-CURRENT-BOOK';
 const TOGGLE_IS_SEARCHED = 'TOGGLE-IS-SEARCHED';
 const SET_TOTAL_ITEMS = 'SET-TOTAL-ITEMS';
 
-
 const initialState = {
   form: {
     searchString: '',
@@ -106,16 +105,16 @@ const searchReducer = (state = initialState, action) => {
 export const setSearchString = (string) => ({type: SET_SEARCH_STRING, string});
 export const setSearchCategory = (category) => ({type: SET_SEARCH_CATEGORY, category});
 export const setSearchSortBy = (sortBy) => ({type: SET_SEARCH_SORT_BY, sortBy});
-export const setSearchResult = (items) => ({type: SET_SEARCH_RESULT, items});
-export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-export const setMoreBooks = (items) => ({type: LOAD_MORE_BOOKS, items});
-export const setStartIndex = (startIndex, maxResults) => {
+const setSearchResult = (items) => ({type: SET_SEARCH_RESULT, items});
+const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+const setMoreBooks = (items) => ({type: LOAD_MORE_BOOKS, items});
+const setStartIndex = (startIndex, maxResults) => {
   const newStartIndex = startIndex + maxResults;
   return {type: SET_START_INDEX, startIndex: newStartIndex};
 };
-export const setCurrentBook = (currentBook) => ({type: SET_CURRENT_BOOK, currentBook});
-export const toggleIsSearched = (isSearched) => ({type: TOGGLE_IS_SEARCHED, isSearched});
-export const setTotalItems = (totalItems) => ({type: SET_TOTAL_ITEMS, totalItems});
+const setCurrentBook = (currentBook) => ({type: SET_CURRENT_BOOK, currentBook});
+const toggleIsSearched = (isSearched) => ({type: TOGGLE_IS_SEARCHED, isSearched});
+const setTotalItems = (totalItems) => ({type: SET_TOTAL_ITEMS, totalItems});
 
 export const formSubmit = (searchString, sortBy, category, maxResults, startIndex) => (dispatch) => {
   if (!searchString) {
