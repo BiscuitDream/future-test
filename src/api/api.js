@@ -36,9 +36,9 @@ const axiosInstance = axios.create({
 });
 
 const api = {
-  getBooks(searchString, sortBy, maxResults, startIndex = 0) {
+  getBooks(searchString, sortBy, category, maxResults, startIndex = 0) {
     return axiosInstance
-      .get(`?q=${searchString}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`) // +subject:${props.category}
+      .get(`?q=${searchString}+subject:${category}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`)
       .then(response => response.data.items.map((item) => mappingDataItem(item)));
   },
   getBook(id) {
