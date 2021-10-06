@@ -1,4 +1,4 @@
-##Тестовое задание в компанию "Фьюче".
+## Тестовое задание в компанию "Фьюче".
 
 https://github.com/fugr-ru/frontend-javascript-test-2
 
