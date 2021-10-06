@@ -1,11 +1,12 @@
 import styles from './AboutBook.module.css';
+import defaultCover from '../../../assets/images/book-cover-template.jpg'
 
 const AboutBook = (props) => {
   const title = Boolean(props.title) ? props.title : ' ';
   const authors = Boolean(props.authors) ? props.authors.join(', ') : ' ';
   const categories = Boolean(props.categories) ? props.categories.join(', ') : ' ';
   const description = Boolean(props.description) ? props.description : ' ';
-  const coverSrc = props?.imageLinks?.thumbnail;
+  const coverSrc = (props?.imageLinks?.thumbnail) ? props?.imageLinks?.thumbnail : defaultCover;
 
   return (
     <div className={styles.book}>
