@@ -1,5 +1,6 @@
 import styles from './BookCard.module.css';
 import defaultCover from '../../../assets/images/book-cover-template.jpg'
+import {Link} from "react-router-dom";
 
 const BookCard = (props) => {
   const title = Boolean(props.title) ? props.title : ' ';
@@ -10,13 +11,15 @@ const BookCard = (props) => {
 
   return (
     <div className={styles.bookCard}>
-      <a href={linkAddress}>
+      <Link to={linkAddress}>
         <div className={styles.coverWrapper}>
           <img className={styles.cover} src={coverSrc} alt="book cover"/>
         </div>
-      </a>
+      </Link>
       <p>{categories}</p>
-      <a href={linkAddress}><h3>{title}</h3></a>
+      <Link to={linkAddress}>
+        <h3>{title}</h3>
+      </Link>
       <p className={styles.authors}>{authors}</p>
     </div>
   );

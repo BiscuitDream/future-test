@@ -1,3 +1,18 @@
+.returnLinkWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.returnLink {
+  margin: 10px;
+  padding: 10px;
+  color: white;
+  display: inline-block;
+  background-color: #519898;
+  border-radius: 5px;
+}
+
 .book {
   padding: 20px;
   display: flex;
