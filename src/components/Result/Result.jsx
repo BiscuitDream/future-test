@@ -21,19 +21,17 @@ const Result = (props) => {
       props.setStartIndex(props.startIndex, props.maxResults);
     });
   };
-// TODO прелоадер поправить, мб перенести ниже и только блок книг скрывать
+
   return (
-    <>
+    <div className={styles.resultBlock}>
+      <ul className={styles.booksList}>
+        {books}
+      </ul>
       {props.isFetching ? <Preloader /> : null}
-      <div className={styles.resultBlock}>
-        <ul className={styles.booksList}>
-          {books}
-        </ul>
-        {props.isSearched
-          ? <button className={styles.loadMore} type="button" onClick={onLoadMoreClick}>Load more</button>
-          : null}
-      </div>
-    </>
+      {props.isSearched
+        ? <button className={styles.loadMore} type="button" onClick={onLoadMoreClick}>Load more</button>
+        : null}
+    </div>
   );
 };
 

@@ -1,10 +1,9 @@
 import styles from './Preloader.module.css';
 import {ReactComponent as PreloaderImage} from './preloader.svg';
 
-// TODO стилизовать нормально
 const Preloader = () => {
   return (
-    <div className={styles.overlay}>
+    <div className={styles.preloaderWrapper}>
       <PreloaderImage className={styles.preloader} />
     </div>
   );
