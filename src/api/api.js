@@ -41,8 +41,10 @@ const api = {
     return axiosInstance
       .get(`?q=${searchString}${subject}&orderBy=${sortBy}&startIndex=${startIndex}&maxResults=${maxResults}`)
       .then(response => {
-        const items = response.data.items.map((item) => mappingDataItem(item));
         const totalItemsCount = response.data.totalItems;
+        const items = !response.data.items
+          ? []
+          : response.data.items.map((item) => mappingDataItem(item));
         return {items, totalItemsCount};
       });
   },
