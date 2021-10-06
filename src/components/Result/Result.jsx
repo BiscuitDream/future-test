@@ -25,11 +25,13 @@ const Result = (props) => {
   return (
     <>
       {props.isFetching ? <Preloader /> : null}
-      <div className={styles.booksBlock}>
+      <div className={styles.resultBlock}>
         <ul className={styles.booksList}>
           {books}
         </ul>
-        <button className={styles.loadMore} type="button" onClick={onLoadMoreClick}>Load more</button>
+        {props.isSearched
+          ? <button className={styles.loadMore} type="button" onClick={onLoadMoreClick}>Load more</button>
+          : null}
       </div>
     </>
   );

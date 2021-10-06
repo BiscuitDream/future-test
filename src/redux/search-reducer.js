@@ -6,6 +6,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
 const LOAD_MORE_BOOKS = 'LOAD-MORE-BOOKS';
 const SET_START_INDEX = 'SET-START-INDEX';
 const SET_CURRENT_BOOK = 'SET-CURRENT-BOOK';
+const TOGGLE_IS_SEARCHED = 'TOGGLE-IS-SEARCHED';
 
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   startIndex: 0,
   maxResults: 30,
   searchResult: [],
+  isSearched: false,
   currentBook: null
 };
 
@@ -80,6 +82,12 @@ const searchReducer = (state = initialState, action) => {
         currentBook: action.currentBook
       };
 
+    case TOGGLE_IS_SEARCHED:
+      return {
+        ...state,
+        isSearched: action.isSearched
+      };
+
     default:
       return state;
   }
@@ -96,5 +104,6 @@ export const setStartIndex = (startIndex, maxResults) => {
   return {type: SET_START_INDEX, startIndex: newStartIndex};
 };
 export const setCurrentBook = (currentBook) => ({type: SET_CURRENT_BOOK, currentBook});
+export const toggleIsSearched = (isSearched) => ({type: TOGGLE_IS_SEARCHED, isSearched});
 
 export default searchReducer;

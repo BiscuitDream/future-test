@@ -1,5 +1,5 @@
 import styles from './Search.module.css'
-import api from "../../api/api";
+import api from "../../api/api"; // TODO поменять везде кавычки на одинаковые
 import searchIcon from '../../assets/images/searc-icon.png';
  // TODO задезейблить форму, елси пустая строка
 const Search = (props) => {
@@ -26,6 +26,7 @@ const Search = (props) => {
         props.setSearchResult(data);
         props.toggleIsFetching(false);
         props.setStartIndex(props.startIndex, props.maxResults);
+        props.toggleIsSearched(true);
       });
   };
 
