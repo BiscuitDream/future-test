@@ -31,7 +31,7 @@ const Result = (props) => {
         {books}
       </ul>
       {props.isFetching ? <Preloader /> : null}
-      {props.isSearched
+      {(props.isSearched && props.searchResult.length < props.totalItems)
         ? <button className={styles.loadMore} type="button" onClick={onLoadMoreClick}>Load more</button>
         : null}
     </div>
