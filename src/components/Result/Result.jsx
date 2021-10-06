@@ -14,7 +14,7 @@ const Result = (props) => {
 
   const onLoadMoreClick = () => {
     props.toggleIsFetching(true);
-    api.loadMore(props.searchString, props.sortBy, props.maxResults, props.startIndex)
+    api.getBooks(props.searchString, props.sortBy, props.maxResults, props.startIndex)
       .then(data => {
       props.setMoreBooks(data);
       props.toggleIsFetching(false);

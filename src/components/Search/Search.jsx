@@ -21,7 +21,7 @@ const Search = (props) => {
   const onFormSubmit = (e) => {
     e.preventDefault();
     props.toggleIsFetching(true);
-    api.getSearchResult(props.searchString, props.sortBy, props.maxResults)
+    api.getBooks(props.searchString, props.sortBy, props.maxResults)
       .then(data =>{
         props.setSearchResult(data);
         props.toggleIsFetching(false);
