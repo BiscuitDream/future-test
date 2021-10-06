@@ -1,5 +1,4 @@
 import styles from './Search.module.css'
-import api from '../../api/api';
 import searchIcon from '../../assets/images/searc-icon.png';
  
 const Search = (props) => {
@@ -20,18 +19,7 @@ const Search = (props) => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    if (!props.searchString) {
-      return
-    }
-    props.toggleIsFetching(true);
-    api.getBooks(props.searchString, props.sortBy, props.category, props.maxResults)
-      .then(data =>{
-        props.setSearchResult(data.items);
-        props.setTotalItems(data.totalItemsCount);
-        props.toggleIsFetching(false);
-        props.setStartIndex(props.startIndex, props.maxResults);
-        props.toggleIsSearched(true);
-      });
+    props.formSubmit(props.searchString, props.sortBy, props.category, props.maxResults, props.startIndex);
   };
 
   return (

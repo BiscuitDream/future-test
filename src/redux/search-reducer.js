@@ -1,3 +1,5 @@
+import api from "../api/api";
+
 const SET_SEARCH_STRING = 'SET-SEARCH-STRING';
 const SET_SEARCH_CATEGORY = 'SET-SEARCH-CATEGORY';
 const SET_SEARCH_SORT_BY = 'SET-SEARCH-SORT-BY';
@@ -114,5 +116,37 @@ export const setStartIndex = (startIndex, maxResults) => {
 export const setCurrentBook = (currentBook) => ({type: SET_CURRENT_BOOK, currentBook});
 export const toggleIsSearched = (isSearched) => ({type: TOGGLE_IS_SEARCHED, isSearched});
 export const setTotalItems = (totalItems) => ({type: SET_TOTAL_ITEMS, totalItems});
+
+export const formSubmit = (searchString, sortBy, category, maxResults, startIndex) => (dispatch) => {
+  if (!searchString) {
+    return
+  }
+  dispatch(toggleIsFetching(true));
+  api.getBooks(searchString, sortBy, category, maxResults)
+    .then(data =>{
+      dispatch(setSearchResult(data.items));
+      dispatch(setTotalItems(data.totalItemsCount));
+      dispatch(toggleIsFetching(false));
+      dispatch(setStartIndex(startIndex, maxResults));
+      dispatch(toggleIsSearched(true));
+    });
+};
+
+export const getBook = (bookId) => (dispatch) => {
+  api.getBook(bookId)
+    .then(data => {
+      dispatch(setCurrentBook(data));
+    });
+};
+
+export const loadMore = (searchString, sortBy, category, maxResults, startIndex) => (dispatch) => {
+  dispatch(toggleIsFetching(true));
+  api.getBooks(searchString, sortBy, category, maxResults, startIndex)
+    .then(data => {
+      dispatch(setMoreBooks(data.items));
+      dispatch(toggleIsFetching(false));
+      dispatch(setStartIndex(startIndex, maxResults));
+    });
+};
 
 export default searchReducer;

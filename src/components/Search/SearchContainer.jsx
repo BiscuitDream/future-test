@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import Search from './Search';
 import {
+  formSubmit,
   setSearchCategory,
   setSearchResult,
   setSearchSortBy,
@@ -29,7 +30,8 @@ const SearchContainer = connect(mapStateToProps, {
   toggleIsFetching,
   setStartIndex,
   toggleIsSearched,
-  setTotalItems
+  setTotalItems,
+  formSubmit
 })(Search);
 
 export default SearchContainer;
