@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import api from '../../api/api';
 import {withRouter} from 'react-router-dom';
 import AboutBook from './AboutBook';
-import {setCurrentBook} from "../../redux/search-reducer";
+import {setCurrentBook} from '../../redux/search-reducer';
 
 class AboutBookContainer extends React.Component {
   componentDidMount() {

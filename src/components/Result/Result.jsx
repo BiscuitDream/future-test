@@ -1,7 +1,7 @@
 import styles from './Result.module.css'
 import BookCard from './BookCard/BookCard';
-import Preloader from "../common/Preloader/Preloader";
-import api from "../../api/api";
+import Preloader from '../common/Preloader/Preloader';
+import api from '../../api/api';
 
 const Result = (props) => {
   const books = props.searchResult.map((book) => {

@@ -1,5 +1,5 @@
 import styles from './Search.module.css'
-import api from "../../api/api"; // TODO поменять везде кавычки на одинаковые
+import api from '../../api/api';
 import searchIcon from '../../assets/images/searc-icon.png';
  // TODO задезейблить форму, елси пустая строка
 const Search = (props) => {

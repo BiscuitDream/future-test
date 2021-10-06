@@ -1,6 +1,6 @@
 import Result from './Result';
 import {connect} from 'react-redux';
-import {setMoreBooks, setStartIndex, toggleIsFetching} from "../../redux/search-reducer";
+import {setMoreBooks, setStartIndex, toggleIsFetching} from '../../redux/search-reducer';
 
 const mapStateToProps = (state) => {
   return {
