@@ -25,7 +25,7 @@ const Result = (props) => {
   return (
     <div className={styles.resultBlock}>
       <div className={styles.totalCountWrapper}>
-        <p>{(props.totalItems === 0) ? null : `Found ${props.totalItems} results`}</p>
+        <p>{props.isSearched ? `Found ${props.totalItems} results` : null}</p>
       </div>
       <ul className={styles.booksList}>
         {books}
