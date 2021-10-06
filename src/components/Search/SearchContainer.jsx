@@ -17,11 +17,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-const SearchContainer = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
   setSearchString,
   setSearchCategory,
   setSearchSortBy,
   formSubmit
 })(Search);
-
-export default SearchContainer;

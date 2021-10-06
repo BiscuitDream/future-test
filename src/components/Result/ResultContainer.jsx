@@ -16,6 +16,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const ResultContainer = connect(mapStateToProps, {loadMore})(Result);
-
-export default ResultContainer;
+export default connect(mapStateToProps, {loadMore})(Result);
