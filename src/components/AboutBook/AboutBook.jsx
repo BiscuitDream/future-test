@@ -1,5 +1,5 @@
 import styles from './AboutBook.module.css';
-import defaultCover from '../../../assets/images/book-cover-template.jpg'
+import defaultCover from '../../assets/images/book-cover-template.jpg'
 
 const AboutBook = (props) => {
   const title = Boolean(props.title) ? props.title : ' ';
