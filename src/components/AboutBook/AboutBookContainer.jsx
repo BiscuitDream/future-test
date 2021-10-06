@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {compose} from "redux";
 import {withRouter} from 'react-router-dom';
 import AboutBook from './AboutBook';
 import {getBook} from '../../redux/search-reducer';
@@ -17,10 +18,11 @@ class AboutBookContainer extends React.Component {
   }
 }
 
-const AboutBookContainerWithRouter = withRouter(AboutBookContainer);
-
 const mapStateToProps = (state) => ({
   currentBook: state.search.currentBook
 });
 
-export default connect(mapStateToProps, {getBook})(AboutBookContainerWithRouter);
+export default compose(
+  connect(mapStateToProps, {getBook}),
+  withRouter
+)(AboutBookContainer);
