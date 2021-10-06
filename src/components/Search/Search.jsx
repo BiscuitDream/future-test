@@ -26,7 +26,8 @@ const Search = (props) => {
     props.toggleIsFetching(true);
     api.getBooks(props.searchString, props.sortBy, props.category, props.maxResults)
       .then(data =>{
-        props.setSearchResult(data);
+        props.setSearchResult(data.items);
+        props.setTotalItems(data.totalItemsCount);
         props.toggleIsFetching(false);
         props.setStartIndex(props.startIndex, props.maxResults);
         props.toggleIsSearched(true);

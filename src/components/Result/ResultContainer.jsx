@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
     sortBy: state.search.form.sortBy,
     startIndex: state.search.startIndex,
     maxResults: state.search.maxResults,
-    isSearched: state.search.isSearched
+    isSearched: state.search.isSearched,
+    totalItems: state.search.totalItems
   }
 }
 

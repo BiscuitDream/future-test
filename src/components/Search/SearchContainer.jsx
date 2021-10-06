@@ -4,8 +4,11 @@ import {
   setSearchCategory,
   setSearchResult,
   setSearchSortBy,
-  setSearchString, setStartIndex,
-  toggleIsFetching, toggleIsSearched
+  setSearchString,
+  setStartIndex,
+  setTotalItems,
+  toggleIsFetching,
+  toggleIsSearched
 } from "../../redux/search-reducer";
 
 const mapStateToProps = (state) => {
@@ -25,7 +28,8 @@ const SearchContainer = connect(mapStateToProps, {
   setSearchResult,
   toggleIsFetching,
   setStartIndex,
-  toggleIsSearched
+  toggleIsSearched,
+  setTotalItems
 })(Search);
 
 export default SearchContainer;

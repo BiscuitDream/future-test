@@ -7,6 +7,7 @@ const LOAD_MORE_BOOKS = 'LOAD-MORE-BOOKS';
 const SET_START_INDEX = 'SET-START-INDEX';
 const SET_CURRENT_BOOK = 'SET-CURRENT-BOOK';
 const TOGGLE_IS_SEARCHED = 'TOGGLE-IS-SEARCHED';
+const SET_TOTAL_ITEMS = 'SET-TOTAL-ITEMS';
 
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
     category: 'all',
     sortBy: 'relevance',
   },
+  totalItems: 0,
   isFetching: false,
   startIndex: 0,
   maxResults: 30,
@@ -88,6 +90,12 @@ const searchReducer = (state = initialState, action) => {
         isSearched: action.isSearched
       };
 
+    case SET_TOTAL_ITEMS:
+      return {
+        ...state,
+        totalItems: action.totalItems
+      };
+
     default:
       return state;
   }
@@ -105,5 +113,6 @@ export const setStartIndex = (startIndex, maxResults) => {
 };
 export const setCurrentBook = (currentBook) => ({type: SET_CURRENT_BOOK, currentBook});
 export const toggleIsSearched = (isSearched) => ({type: TOGGLE_IS_SEARCHED, isSearched});
+export const setTotalItems = (totalItems) => ({type: SET_TOTAL_ITEMS, totalItems});
 
 export default searchReducer;

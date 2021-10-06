@@ -16,7 +16,7 @@ const Result = (props) => {
     props.toggleIsFetching(true);
     api.getBooks(props.searchString, props.sortBy, props.category, props.maxResults, props.startIndex)
       .then(data => {
-      props.setMoreBooks(data);
+      props.setMoreBooks(data.items);
       props.toggleIsFetching(false);
       props.setStartIndex(props.startIndex, props.maxResults);
     });
@@ -24,6 +24,9 @@ const Result = (props) => {
 
   return (
     <div className={styles.resultBlock}>
+      <div className={styles.totalCountWrapper}>
+        <p>{`Found ${props.totalItems} results`}</p>
+      </div>
       <ul className={styles.booksList}>
         {books}
       </ul>

@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+.totalCountWrapper {
+  text-align: center;
+}
+
 .booksList {
   margin: 0;
   padding: 0;
